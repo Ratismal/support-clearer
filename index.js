@@ -37,9 +37,10 @@ async function handleCommand(msg, command, words) {
 }
 
 bot.on('messageCreate', async msg => {
+  console.log(msg.content);
   if (msg.member.roles.includes(config.modRole)) {
     if (msg.content.startsWith(config.prefix)) {
-      const words = msg.content.substring(1).trim().split(/\s/);
+      const words = msg.content.substring(config.prefix.length).trim().split(/\s/);
       const command = words.shift();
 
       const res = await handleCommand(msg, command, words);
