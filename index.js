@@ -24,7 +24,6 @@ async function clearChannel() {
   await channel.createMessage('✨ Emotional Support has been cleared. I hope you have a great day!');
 }
 
-
 async function handleCommand(msg, command, words) {
   switch (command) {
     case 'ping': {
@@ -37,7 +36,6 @@ async function handleCommand(msg, command, words) {
 }
 
 bot.on('messageCreate', async msg => {
-  console.log(msg.content);
   if (msg.member.roles.includes(config.modRole)) {
     if (msg.content.startsWith(config.prefix)) {
       const words = msg.content.substring(config.prefix.length).trim().split(/\s/);
