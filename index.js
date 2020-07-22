@@ -2,7 +2,9 @@ const config = require('./config.json');
 const Eris = require('eris');
 const { CronJob } = require('cron');
 
-const bot = new Eris(config.token);
+const bot = new Eris(config.token, {
+  getAllUsers: true
+});
 
 bot.on('ready', () => {
   console.log('Bot is ready!');
@@ -36,7 +38,7 @@ async function handleCommand(msg, command, words) {
 }
 
 bot.on('messageCreate', async msg => {
-  if (msg.member.roles.includes(config.modRole)) {
+  if (msg.member && msg.member.roles.includes(config.modRole)) {
     if (msg.content.startsWith(config.prefix)) {
       const words = msg.content.substring(config.prefix.length).trim().split(/\s/);
       const command = words.shift();
