@@ -1,6 +1,6 @@
 {
   "token": "YOUR_TOKEN_HERE",
-  "modRole": "the ID of the mod role, that can use the commands",
+  "modRole": ["the ID of the mod role, that can use the commands"],
   "channel": "the channel to clear",
   "time": "a cron format. ex. for every day at 4am, '0 0 4 * * *'",
   "timezone": "a timezone code. ex, 'America/Chicago'",
