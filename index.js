@@ -56,3 +56,5 @@ bot.connect();
 const clearJob = new CronJob(config.time, function () {
   return clearChannel();
 }, null, false, config.timezone);
+
+clearJob.start();
